@@ -14,12 +14,15 @@ class Config:
     DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 
     SQLALCHEMY_DATABASE_URI = (
-        f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+        f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}"
+        f"@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8mb4"
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ENGINE_OPTIONS = {
         "pool_recycle": 280,
         "pool_pre_ping": True,
+        "pool_timeout": 20,
+        "max_overflow": 0,
     }
 
     # JWT
