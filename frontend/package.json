@@ -1,0 +1,38 @@
+{
+  "name": "incident-hub-frontend",
+  "version": "1.0.0",
+  "description": "Multi-tenant Incident Response Platform - Frontend",
+  "productName": "IncidentHub",
+  "author": "IncidentHub Team",
+  "private": true,
+  "scripts": {
+    "dev": "quasar dev",
+    "dev:vite": "vite",
+    "build": "quasar build",
+    "lint": "eslint --ext .js,.vue ./src",
+    "format": "prettier --write \"**/*.{js,vue,scss,html,md}\""
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.11",
+    "axios": "^1.6.8",
+    "pinia": "^2.1.7",
+    "quasar": "^2.15.4",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^1.9.2",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.24.0",
+    "prettier": "^3.2.5",
+    "sass": "^1.72.0",
+    "vite": "^5.2.7"
+  },
+  "engines": {
+    "node": "^20 || ^18 || ^16",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

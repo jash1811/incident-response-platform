@@ -1,0 +1,39 @@
+// Global app styles for IncidentHub
+// Keep this minimal — Quasar handles most of the heavy lifting
+
+// Smooth page transitions
+.q-page {
+  animation: fadeIn 0.15s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// Consistent card radius
+.q-card {
+  border-radius: 8px;
+}
+
+// Table row hover
+.q-table tbody tr:hover {
+  background-color: rgba(25, 118, 210, 0.04);
+}
+
+// Strikethrough helper used in activity timeline
+.text-strikethrough {
+  text-decoration: line-through;
+}
+
+// Sidebar active link
+.q-item.q-router-link--active {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+// Responsive table scroll on mobile
+.q-table__container {
+  overflow-x: auto;
+}
