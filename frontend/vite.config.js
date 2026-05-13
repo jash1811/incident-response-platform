@@ -15,16 +15,20 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      // allows "src/..." imports inside .vue and .js files
       src: path.resolve(__dirname, './src'),
     },
+  },
+
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
   },
 
   server: {
     port: 9000,
     open: true,
     proxy: {
-      // forward /api/* to the Flask backend — no CORS issues in dev
+      // In dev, forward /api to local Flask — no CORS issues
       '/api': {
         target: 'http://localhost:5000',
         changeOrigin: true,

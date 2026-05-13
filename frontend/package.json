@@ -9,6 +9,7 @@
     "dev": "quasar dev",
     "dev:vite": "vite",
     "build": "quasar build",
+    "build:prod": "vite build",
     "lint": "eslint --ext .js,.vue ./src",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md}\""
   },
