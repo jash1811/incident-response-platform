@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { useAuthStore } from 'src/stores/auth'
 
+// In dev: VITE_API_URL is empty so baseURL is '' and the vite proxy handles /api/*
+// In production: VITE_API_URL is the full Render backend URL
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
+    baseURL: import.meta.env.VITE_API_URL || '',
     timeout: 15000,
 })
 
-// Request interceptor – attach JWT
+// Attach JWT token to every request
 api.interceptors.request.use(
     (config) => {
         const authStore = useAuthStore()
@@ -18,14 +20,13 @@ api.interceptors.request.use(
     (error) => Promise.reject(error)
 )
 
-// Response interceptor – handle 401
+// Handle 401 globally — clear auth and redirect to login
 api.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error.response?.status === 401) {
             const authStore = useAuthStore()
             authStore.logout()
-            // Redirect handled by router guard
             window.location.href = '/login'
         }
         return Promise.reject(error)
