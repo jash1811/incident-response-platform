@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IncidentHub — Multi-Tenant Incident Response Platform
 
 A production-ready MVP SaaS platform for managing incidents across isolated tenants. Built with Flask (backend) and Quasar/Vue 3 (frontend).
@@ -266,3 +267,6 @@ Roles are enforced via decorators (`@admin_required`, `@manager_or_admin_require
 
 AI tools were used for boilerplate acceleration and documentation assistance.  
 Core architecture, tenant isolation strategy, RBAC design, optimistic concurrency implementation, and backend flow decisions were manually reviewed and modified.
+=======
+# incident-response-platform
+>>>>>>> 4bfdfda9b2e7cf78e50c0db1b8d3eb59947759be
