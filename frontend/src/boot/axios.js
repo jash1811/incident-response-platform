@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { useAuthStore } from 'src/stores/auth'
 
-// In dev: VITE_API_URL is empty so baseURL is '' and the vite proxy handles /api/*
-// In production: VITE_API_URL is the full Render backend URL
+// Always use relative /api/* paths.
+// - In dev: Vite proxy forwards /api/* → localhost:5000
+// - In production: Netlify redirect rule forwards /api/* → Render backend
+// This means NO hardcoded backend URL needed in the frontend at all.
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || '',
+    baseURL: '',
     timeout: 15000,
 })
 
@@ -27,7 +29,7 @@ api.interceptors.response.use(
         if (error.response?.status === 401) {
             const authStore = useAuthStore()
             authStore.logout()
-            window.location.href = '/login'
+            window.location.href = '/#/login'
         }
         return Promise.reject(error)
     }
